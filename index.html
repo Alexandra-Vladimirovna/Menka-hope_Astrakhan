@@ -1,65 +1,75 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
-  <title>Семейное кафе — Горшеченский район</title>
-  <style>
-    /* Добавляем стиль для уменьшения логотипа */
-    .header img {
-      width: 60%; /* Уменьшаем ширину логотипа до 60% от исходной */
-      max-width: 600px; /* Ограничиваем максимальную ширину */
-      display: block;
-      margin: 0 auto;
-    }
-  </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Личная страница студента КГУ, Уварова Андрея</title>
 </head>
 <body>
-  <div class="header">
-    <img src="заголовок.jpg" alt="Логотип Семейного кафе">
-    <h1>Семейное кафе</h1>
-  </div>
-  <ul class="menu">
-    <li><a href="#home">Главная</a></li>
-    <li><a href="#products">Меню</a></li>
-    <li><a href="#aboutus">О нас</a></li>
-    <li><a href="#contact">Контакты</a></li>
-  </ul>
-  <div class="content">
-    <h2 id="home">Добро пожаловать в Семейное кафе!</h2>
-    <p>
-      В нашем кафе вы найдете вкусную еду по доступным ценам.
-      Мы готовим с любовью и заботой о каждом госте!
-    </p>
+  <!-- Заголовок страницы -->
+  <div class="container">
+    <h1>Личная страница студент КГУ, Уварова Андрея</h1>
+    <img src="https://sun1-17.userapi.com/s/v1/ig2/CKIMYnpn7ylf9_cXeJbniaWOIVZDkBdl_lF14cEDANj-o4wvie5EOcJaQq1_hX6FbFoyoBepC2yuNDoJ1WH_nChv.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,960x1280&from=bu&cs=960x0" alt="Контактное изображение" width="200">
+    <hr>
 
-    <h2 id="products">Наше меню</h2>
-    <p>
-      <strong>Блюда дня:</strong>
-      <br>— Картофель фри
-      <br>— Шаурма
-      <br>— Шашлык (курятина, свинана, барания)
-      <br>— гамбургеры, чизбургеры, сэндвичи
-      <br>
-      <br><strong>Напитки:</strong>
-      <br>— Кофе, чай, какао
-      <br>— Свежевыжатые соки
-      <br>— Компоты и морсы
-    </p>
+    <!-- Меню страницы -->
+    <nav class="block">
+      <h2>Меню страницы:</h2>
+      <ol>
+        <li><a href="#info">Информация о студенте</a></li>
+        <li><a href="#contacts">Контакты</a></li>
+        <li><a href="#blank">Мой ВУЗ</a></li> 
+        <li><a href="#hobbies">Увлечения</a></li>
+        <li><a href="#links">Полезные ссылки</a></li>
+      </ol>
+    </nav>
+    <hr>
+    
+        <!-- Информация о студенте -->
+    <div id="info" class="block">
+      <h2>Информация о студенте</h2>
+      <ul>
+        <li>ФИО: Уваров Андрей Вячеславович</li>
+        <li>Дата рождения: 04.03.2005г.</li>
+        <li>Студент 3 курса</li>
+      </ul>
+    </div>
 
-    <h2 id="aboutus">О нас</h2>
-    <p>
-      Семейное кафе — это место, где каждый чувствует себя как дома.
-      Мы работаем с 2024 года и гордимся тем, что создаем уютную атмосферу для семейного отдыха.
-      Наши повара используют только свежие и качественные продукты.
-    </p>
+     <!-- Мой ВУЗ -->
+    <div id="blank" class="block">
+      <h2>Мой ВУЗ</h2>
+      <p><b>Ссылка на сайт вуза:</b> <a href="https://sf.misis.ru/">СТИ НИТУ МИСИС</a></p>
+    </div>
 
-    <h2 id="contact">Контакты</h2>
-    <p>
-      <strong>Адрес:</strong> Курская область, муниципальное образование посёлок Горшечное, рабочий посёлок Горшечное, Первомайский переулок, 2К
-      <br><strong>Телефон:</strong> +7-910-219-77-33
-      <br><strong>Режим работы:</strong> Ежедневно, с 11:00 – 23:00
-    </p>
+    <!-- Контакты -->
+    <div id="contacts" class="block">
+      <h2>Контакты</h2>
+      <p><b>Электронная почта:</b> <a href="mailto:s2301211@edu.misis.ru">s2301211@edu.misis.ru</a></p>
+    </div>
+
+    <!-- Увлечения -->
+    <div id="hobbies" class="block">
+      <h2>Мои увлечения и хобби</h2>
+      <ul>
+        <li>Психология</li>
+        <li>Чтение</li>
+      </ul>
+    </div>
+
+    <!-- Полезные ссылки -->
+    <div id="links" class="block">
+      <h2>Полезные ссылки</h2>
+      <p><a href="https://www.jkrowling.com/about/">Страница Джоан Роулинг</a></p>
+      <p><a href="https://www.davidsedarisbooks.com/">Страница Дэвида Седариса</a></p>
+      <p><a href="https://jakeknapp.com/">Страница Джейка Кнаппа</a></p>
+    </div>
+
+    <!-- Встроенное видео -->
+    <div id="media" class="block">
+      <h2> Новогодние видео-поздравления от ФАИТ </h2>
+      <iframe src="https://vk.com/video_ext.php?oid=-1164947&id=456239142&hd=2&autoplay=1" width="853" height="480" style="background-color: #000" allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;" frameborder="0" allowfullscreen></iframe>
+    </div>
   </div>
 </body>
 </html>
+
