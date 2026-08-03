@@ -336,39 +336,25 @@
             transition: all 0.3s;
             border-radius: 5px;
             display: inline-block;
+            cursor: pointer;
         }
 
         .news-link:hover {
             background-color: #e6f2ff;
             color: #004499;
             transform: scale(1.05);
-            cursor: pointer;
         }
 
-        /* Модальное окно для новости */
-        #newsModal {
+        /* Контент для новостей */
+        .news-content {
             display: none;
-            position: fixed;
-            z-index: 1001;
-            left: 0;
-            top: 0;
             width: 100%;
-            height: 100%;
-            background-color: rgba(173, 216, 230, 0.95); /* Голубой фон */
-            justify-content: center;
-            align-items: center;
-        }
-
-        .news-modal-content {
-            background-color: rgba(255, 255, 255, 0.95);
-            padding: 30px;
-            border-radius: 10px;
             max-width: 900px;
-            width: 90%;
-            max-height: 90vh;
-            overflow-y: auto;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-            position: relative;
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            margin-top: 10px;
         }
 
         .news-person {
@@ -409,61 +395,35 @@
             line-height: 1.6;
         }
 
-        /* Кнопка возврата */
-        .back-button-container {
-            text-align: center;
+        /* Кнопка для руководства ФЕНКА */
+        .leadership-news-link {
+            color: #0066cc;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            padding: 10px 20px;
+            transition: all 0.3s;
+            border-radius: 5px;
+            display: inline-block;
+            cursor: pointer;
             margin-top: 20px;
         }
 
-        .back-button {
-            padding: 10px 20px;
-            background-color: #0066cc;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: all 0.3s;
-        }
-
-        .back-button:hover {
-            background-color: #0055aa;
+        .leadership-news-link:hover {
+            background-color: #e6f2ff;
+            color: #004499;
             transform: scale(1.05);
         }
 
-        /* Раздел "Контакты" */
-        .contacts-container {
-            text-align: center;
-        }
-
-        .contacts-container p {
-            margin: 15px 0;
-            font-size: 18px;
-        }
-
-        .social-links {
-            margin-top: 25px;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .social-link {
-            display: inline-block;
-            width: 50px;
-            height: 50px;
-            background-color: #0066cc;
-            color: white;
-            text-align: center;
-            line-height: 50px;
-            border-radius: 50%;
-            transition: all 0.3s;
-            font-size: 24px;
-        }
-
-        .social-link:hover {
-            background-color: #0055aa;
-            transform: scale(1.1);
+        .leadership-news-content {
+            display: none;
+            width: 100%;
+            max-width: 900px;
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            margin-top: 10px;
         }
 
         /* Адаптивность */
@@ -558,14 +518,14 @@
                     <a href="#" onclick="showSection('reports')">Отчеты</a>
                 </div>
             </li>
-	     <li><a href="#" onclick="showSection('donations')">Пожертвования</a></li>
+            <li><a href="#" onclick="showSection('donations')">Пожертвования</a></li>
             <li><a href="#" onclick="showSection('contacts')">Контакты</a></li>
         </ul>
     </nav>
 
     <!-- Основной контент -->
     <main>
-               <!-- Раздел "Описание" -->
+        <!-- Раздел "Описание" -->
         <section id="description" class="section">
             <h2>Описание</h2>
             <p>
@@ -619,7 +579,7 @@
             </p>
         </section>
 
-        <!-- Раздел "Руководство" -->
+         <!-- Раздел "Руководство" -->
         <section id="leadership" class="section">
             <h2>Руководство</h2>
             <div class="leadership-container">
@@ -653,23 +613,19 @@
             </div>
         </section>
 
+
         <!-- Раздел "Новости" -->
         <section id="news" class="section">
             <h2>Новости</h2>
             <div class="news-container">
-                <a href="#" onclick="openNewsModal()" class="news-link">
-                    Новости ФЕНКА.
-                </a>
-
-                <!-- Модальное окно для новости -->
-                <div id="newsModal" class="modal" onclick="closeNewsModal()">
-                    <span class="close" onclick="closeNewsModal()">&times;</span>
-                    <div class="news-modal-content">
-                        <div class="news-person">
-                            <img src="images/Мельников Сергей Евгеньевич.jpg" alt="Мельников Сергей Евгеньевич" class="news-person-img" onclick="enlargeImage(this)">
-                            <div class="news-person-info">
-                                <h3>Знакомьтесь: Мельников Сергей Евгеньевич - президент ФЕНКА.</h3>
-                                <p><strong>1. Немного о себе.</strong></p>
+                <!-- Кнопка "Новости ФЕНКА" -->
+                <div class="news-link" onclick="toggleNews()">Новости ФЕНКА.</div>
+                <div id="newsContent" class="news-content">
+                    <div class="news-person">
+                        <img src="images/Мельников Сергей Евгеньевич.jpg" alt="Мельников Сергей Евгеньевич" class="news-person-img" onclick="openModal(this)">
+                        <div class="news-person-info">
+                            <h3>Знакомьтесь: Мельников Сергей Евгеньевич - президент ФЕНКА.</h3>
+                            <p><strong>1. Немного о себе.</strong></p>
                                 <p>«Я всю жизнь убежден, что главное богатство любого народа — это люди. Поэтому сегодня значительная часть моей деятельности связана с развитием и сохранением нашей культуры, традиций и укреплением единства еврейской общины России. Для меня очень важно, чтобы каждое новое поколение чувствовало свою связь с историей своего народа и стремилось делать этот мир лучше.»</p>
 
                                 <p><strong>2. Кто Вы для Молодежного департамента ФЕНКА?</strong></p>
@@ -682,15 +638,51 @@
                                 <p>«Для меня Молодежный департамент — это инвестиция в будущее. Это место, где рождаются новые идеи, появляются лидеры и формируется поколение людей, которое сохранит и приумножит наши традиции, культуру и ценности.</p>
                                 <p>Очень хочется, чтобы каждый молодой человек понимал: в ФЕНКА его всегда ждут, слышат и готовы поддержать.»</p>
                             </div>
-                        </div>
-                        <div class="back-button-container">
-                            <button onclick="closeNewsModal()" class="back-button">Вернуться к новостям</button>
+                    </div>
+                </div>
+
+                <!-- Кнопка "Продолжаем знакомиться с руководством ФЕНКА" -->
+                <div class="leadership-news-link" onclick="toggleLeadershipNews()">Продолжаем знакомиться с руководством ФЕНКА.</div>
+                <div id="leadershipNewsContent" class="leadership-news-content">
+                    <div class="news-person">
+                        <img src="images/Игорь Амнерович Дабакаров!.jpg" alt="Игорь Амнерович Дабакаров" class="news-person-img" onclick="openModal(this)">
+                        <div class="news-person-info">
+                            <h3>Игорь Амнерович Дабакаров</h3>
+                            <p><strong>И мы продолжаем знакомство!</strong></p>
+                            <p>Сегодня это человек, которого вы все уже видели как минимум в этом канале с парой мудрых слов, но как будто он бывает везде и его знают все: Игорь Амнерович Дабакаров!</p>
+                            <p>«Более 30 лет назад я сам начал свой путь в молодежном движении, и с тех пор мне посчастливилось реализовать десятки образовательных, культурных и общественных проектов.</p>
+                            <p>Я убежден: самые большие перемены начинаются тогда, когда молодым людям доверяют и дают возможность проявить себя.</p>
+                            <p>Для меня важно быть рядом — делиться опытом, помогать, поддерживать и вместе искать решения. Мне хочется, чтобы ребята знали: с любой идеей можно прийти, обсудить ее и получить помощь в реализации.</p>
+                            <p>МОЛДЕП - это возможность создать сообщество молодых людей из разных регионов России, которые смогут вместе учиться, дружить, придумывать проекты и менять жизнь вокруг себя. Именно в объединении людей я вижу главную силу проекта.</p>
+                            <p>Самое важное, что нужно сделать тем, кто думает стать частью департамента это не ждать, пока вы станете опытными или будете знать ответы на все вопросы. Гораздо важнее желание развиваться, брать ответственность и быть полезным людям.</p>
+                            <p>Если у вас есть идеи, энергия и готовность делать что-то настоящее или быть в команде таких людей — значит, вам точно к нам.»</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- Раздел "Пожертвования" -->
+        <section id="donations" class="section">
+            <h2>Пожертвования</h2>
+            <div class="donation-container">
+                <img src="images/qr код.jpg" alt="QR-код для пожертвований" class="qr-code" onclick="openModal(this)">
+                <div class="donation-info">
+                    <h3>Меняем мир вместе</h3>
+                    <p>Ваше небольшое пожертвование сегодня — это существование нашей организации завтра.</p>
+                    <div class="bank-details">
+                        <h4>Банковские реквизиты:</h4>
+                        <p><strong>Расчётный счёт:</strong> 40703810405000000727</p>
+                        <p><strong>Наименование банка:</strong> ПАО Сбербанк</p>
+                        <p><strong>Корреспондентский счёт:</strong> 30101810500000000602</p>
+                        <p><strong>ИНН получателя:</strong> 3023023095</p>
+                        <p><strong>КПП:</strong> 302301001</p>
+                        <p><strong>ОГРН:</strong> 1203000000741</p>
+                        <p><strong>ФИО получателя:</strong> Председатель Калинина Александра Владимировна (на основании Устава)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <!-- Раздел "Уставные документы" -->
         <section id="charter-docs" class="section">
@@ -718,28 +710,6 @@
             </div>
         </section>
 
-        <!-- Раздел "Пожертвования" -->
-        <section id="donations" class="section">
-            <h2>Пожертвования</h2>
-            <div class="donation-container">
-                <img src="images/qr код.jpg" alt="QR-код для пожертвований" class="qr-code" onclick="openModal(this)">
-                <div class="donation-info">
-                    <h3>Меняем мир вместе</h3>
-                    <p>Ваше небольшое пожертвование сегодня — это существование нашей организации завтра.</p>
-                    <div class="bank-details">
-                        <h4>Банковские реквизиты:</h4>
-                        <p><strong>Расчётный счёт:</strong> 40703810405000000727</p>
-                        <p><strong>Наименование банка:</strong> ПАО Сбербанк</p>
-                        <p><strong>Корреспондентский счёт:</strong> 30101810500000000602</p>
-                        <p><strong>ИНН получателя:</strong> 3023023095</p>
-                        <p><strong>КПП:</strong> 302301001</p>
-                        <p><strong>ОГРН:</strong> 1203000000741</p>
-                        <p><strong>ФИО получателя:</strong> Председатель Калинина Александра Владимировна (на основании Устава)</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!-- Раздел "Контакты" -->
         <section id="contacts" class="section">
             <h2>Контакты</h2>
@@ -756,6 +726,7 @@
             </div>
         </section>
     </main>
+
 
     <script>
         // Функция для отображения нужного раздела
@@ -780,127 +751,24 @@
             modal.style.display = 'none';
         }
 
-        // Функции для модального окна новости
-        function openNewsModal() {
-            document.getElementById('newsModal').style.display = 'flex';
-        }
-
-        function closeNewsModal() {
-            document.getElementById('newsModal').style.display = 'none';
-        }
-
-        // Функция для увеличения изображения в модальном окне новости
-        function enlargeImage(img) {
-            if (img.style.transform === "scale(1.5)") {
-                img.style.transform = "scale(1)";
+        // Функция для переключения видимости контента новостей
+        function toggleNews() {
+            const newsContent = document.getElementById('newsContent');
+            if (newsContent.style.display === 'block') {
+                newsContent.style.display = 'none';
             } else {
-                img.style.transform = "scale(1.5)";
+                newsContent.style.display = 'block';
             }
         }
 
-        // По умолчанию открываем раздел "Описание" при загрузке страницы
-        window.onload = function() {
-            showSection('description');
-        };
-    </script>
-</body>
-</html>
-
-        <!-- Раздел "Пожертвования" -->
-        <section id="donations" class="section">
-            <h2>Пожертвования</h2>
-            <div class="donation-container">
-                <img src="images/qr код.jpg" alt="QR-код для пожертвований" class="qr-code" onclick="openModal(this)">
-                <div class="donation-info">
-                    <h3>Меняем мир вместе</h3>
-                    <p>Ваше небольшое пожертвование сегодня — это существование нашей организации завтра.</p>
-                    <div class="bank-details">
-                        <h4>Банковские реквизиты:</h4>
-                        <p><strong>Расчётный счёт:</strong> 40703810405000000727</p>
-                        <p><strong>Наименование банка:</strong> ПАО Сбербанк</p>
-                        <p><strong>Корреспондентский счёт:</strong> 30101810500000000602</p>
-                        <p><strong>ИНН получателя:</strong> 3023023095</p>
-                        <p><strong>КПП:</strong> 302301001</p>
-                        <p><strong>ОГРН:</strong> 1203000000741</p>
-                        <p><strong>ФИО получателя:</strong> Председатель Калинина Александра Владимировна (на основании Устава)</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Раздел "Уставные документы" -->
-        <section id="charter-docs" class="section">
-            <h2>Уставные документы</h2>
-            <div class="documentation-container">
-                <a href="docs/УСТАВ МОО ЕНКА г.Астрахани НАДЕЖДА.pdf" target="_blank" class="document-link">
-                    <i class="fas fa-file-pdf"></i> УСТАВ МОО ЕНКА г. Астрахани НАДЕЖДА
-                </a>
-                <a href="docs/ОГРН, св-во о постановке на учёт в налоговой и лист записи МЕНКА Надежда.pdf" target="_blank" class="document-link">
-                    <i class="fas fa-file-pdf"></i> ОГРН, свидетельство о постановке на учёт в налоговой и лист записи МЕНКА Надежда
-                </a>
-                <a href="docs/Протокол о создании и избрании №1.pdf" target="_blank" class="document-link">
-                    <i class="fas fa-file-pdf"></i> Протокол о создании и избрании №1
-                </a>
-            </div>
-        </section>
-
-        <!-- Раздел "Отчеты" -->
-        <section id="reports" class="section">
-            <h2>Отчеты</h2>
-            <div class="documentation-container">
-                <a href="docs/ОТЧЕТ об использовании имущества 2025.pdf" target="_blank" class="document-link">
-                    <i class="fas fa-file-pdf"></i> ОТЧЕТ об использовании имущества 2025
-                </a>
-            </div>
-        </section>
-
-        <!-- Раздел "Контакты" -->
-        <section id="contacts" class="section">
-            <h2>Контакты</h2>
-            <div class="contacts-container">
-                <p><strong>Юридический адрес:</strong> 414016, Астраханская обл, город Астрахань, улица Водников, дом 25, квартира 9</p>
-                <p><strong>Почтовый адрес:</strong> 414004, Россия, Астраханская обл, город Астрахань, улица Студенческая, д. 1, квартира 53</p>
-                <p>Тел.: 8(902)110-66-22</p>
-                <p>E-mail: alexandra.kalinina77@gmail.com</p>
-                <div class="social-links">
-                    <a href="https://vk.ru/id792341205" target="_blank" class="social-link">
-                        <i class="fab fa-vk"></i>
-                    </a>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <script>
-        // Функция для отображения нужного раздела
-        function showSection(sectionId) {
-            const sections = document.querySelectorAll('.section');
-            sections.forEach(section => {
-                section.classList.remove('active');
-            });
-            document.getElementById(sectionId).classList.add('active');
-        }
-
-        // Функции для модального окна изображений
-        const modal = document.getElementById('imageModal');
-        const modalImg = document.getElementById('modalImage');
-
-        function openModal(img) {
-            modal.style.display = 'flex';
-            modalImg.src = img.src;
-        }
-
-        function closeModal() {
-            modal.style.display = 'none';
-        }
-
-        // Функции для модального окна новости
-        function openNewsModal() {
-            document.getElementById('newsModal').style.display = 'flex';
-        }
-
-        function closeNewsModal() {
-            document.getElementById('newsModal').style.display = 'none';
+        // Функция для переключения видимости контента руководства
+        function toggleLeadershipNews() {
+            const leadershipNewsContent = document.getElementById('leadershipNewsContent');
+            if (leadershipNewsContent.style.display === 'block') {
+                leadershipNewsContent.style.display = 'none';
+            } else {
+                leadershipNewsContent.style.display = 'block';
+            }
         }
 
         // По умолчанию открываем раздел "Описание" при загрузке страницы
