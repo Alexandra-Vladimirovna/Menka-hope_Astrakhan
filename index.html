@@ -332,7 +332,8 @@
         .horizons-news-link,
         .delta-voice-link,
         .history-news-link,
-        .salt-news-link {
+        .salt-news-link,
+        .draw-picture-link {
             color: #0066cc;
             text-decoration: none;
             font-weight: bold;
@@ -352,7 +353,8 @@
         .horizons-news-link:hover,
         .delta-voice-link:hover,
         .history-news-link:hover,
-        .salt-news-link:hover {
+        .salt-news-link:hover,
+        .draw-picture-link:hover {
             background-color: #e6f2ff;
             color: #004499;
             transform: scale(1.05);
@@ -364,7 +366,8 @@
         .horizons-news-content,
         .delta-voice-content,
         .history-news-content,
-        .salt-news-content {
+        .salt-news-content,
+        .draw-picture-content {
             display: none;
             width: 100%;
             max-width: 900px;
@@ -455,6 +458,39 @@
             line-height: 1.5;
         }
 
+        /* Стиль для контента "Нарисуй картинку" */
+        .draw-picture-content {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 15px;
+        }
+
+        .draw-picture-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 8px;
+            object-fit: cover;
+            border: 2px solid #0066cc;
+            flex-shrink: 0;
+            cursor: pointer;
+        }
+
+        .draw-picture-info {
+            flex: 1;
+        }
+
+        .draw-picture-info h3 {
+            color: #0066cc;
+            margin-bottom: 10px;
+        }
+
+        .draw-picture-info p {
+            margin: 8px 0;
+            text-align: justify;
+            line-height: 1.5;
+        }
+
         /* Адаптивность */
         @media (max-width: 768px) {
             .header-container {
@@ -507,13 +543,15 @@
             }
 
             .news-person,
-            .delta-voice-content {
+            .delta-voice-content,
+            .draw-picture-content {
                 flex-direction: column;
                 text-align: center;
             }
 
             .news-person-img,
-            .delta-voice-img {
+            .delta-voice-img,
+            .draw-picture-img {
                 width: 120px;
                 height: 160px;
                 margin: 0 auto 10px;
@@ -731,14 +769,14 @@
                                 <li>Вещи: старинные Торы, тфилин, старые рецепты фаршированной рыбы («гефильте фиш») с пометками бабушек, книги и другие предметы быта.</li>
                                 <li>Воспоминания. Запишите на диктофон телефонный разговор с мамой или дедушкой. Спросите их: где жила ваша семья до расселения? На каком заводе или в какой артели работал прадед? Как в доме отмечали Песах?</li>
                             </ul>
-                            <p><strong> Дополняйте нас.</strong> Увидели неточность в нашей будущей публикации? Узнали человека на старом снимке? Знаете, где именно находилась миква или лавка колониальных товаров вашего прадеда? Смело пишите комментарии! Каждая деталь бесценна.</p>
+                            <p><strong>🗣 Дополняйте нас.</strong> Увидели неточность в нашей будущей публикации? Узнали человека на старом снимке? Знаете, где именно находилась миква или лавка колониальных товаров вашего прадеда? Смело пишите комментарии! Каждая деталь бесценна.</p>
                             <p>Давайте вместе соберем мозаику, чтобы наши дети знали, чьи они внуки. История живет, пока ее рассказывают.</p>
                             <p>Присылайте в личные сообщения сообщества свои истории.</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Кнопка "От Итиля до Астрахани: 12 веков еврейского присутствия" -->
+                <!-- Новые кнопки -->
                 <div class="history-news-link" onclick="toggleHistoryNews()">От Итиля до Астрахани: 12 веков еврейского присутствия</div>
                 <div id="historyNewsContent" class="history-news-content">
                     <div class="news-person">
@@ -763,7 +801,6 @@
                     </div>
                 </div>
 
-                <!-- Кнопка "Мелах астраканит — Астраханская соль" -->
                 <div class="salt-news-link" onclick="toggleSaltNews()">Мелах астраканит — Астраханская соль</div>
                 <div id="saltNewsContent" class="salt-news-content">
                     <div class="news-person">
@@ -779,6 +816,27 @@
                             <p>На территории современной Астрахани расположены крупнейшие месторождения самосадочной соли (озеро Баскунчак), которые известны уже более 1200 лет. Ещё в VIII веке её доставляли по Великому шёлковому пути. Археологи доказали, что древние народы региона (скифы, сарматы, хазары) жили рядом с соляными озёрами и активно их использовали. Еврейские купцы-радниты были одними из первых, кто прокладывал торговые маршруты через Нижнее Поволжье.</p>
                             <p>Присылайте в личные сообщения сообщества свои истории.</p>
                             <p>#ГолосДельты #ЕвреиАстрахани #ИсторияСемьи #Астрахань</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Новая кнопка "Нарисуй картинку на эту тему" -->
+                <div class="draw-picture-link" onclick="toggleDrawPicture()">
+                    <img src="images/Нарисуй картинку на эту тему.jpg" alt="Нарисуй картинку на эту тему" class="draw-picture-img" style="width: 30px; height: 30px; vertical-align: middle; margin-right: 10px;">
+                    Нарисуй картинку на эту тему, Евреи в Астрахани: первые 30 лет. Только факты из документов
+                </div>
+                <div id="drawPictureContent" class="draw-picture-content">
+                    <div class="news-person">
+                        <img src="images/Нарисуй картинку на эту тему.jpg" alt="Нарисуй картинку на эту тему" class="draw-picture-img" onclick="openModal(this)">
+                        <div class="draw-picture-info">
+                            <h3>Нарисуй картинку на эту тему, Евреи в Астрахани: первые 30 лет. Только факты из документов</h3>
+                            <p><strong>Многие думают, что история евреев в Нижнем Поволжье началась позже. Архивы Государственного архива Астраханской области (ГААО) говорят об обратном. Короткая выжимка:</strong></p>
+                            <p>✅ <strong>1805:</strong> Первые жители — купцы Давыдовы из Витебска. Чтобы попасть во 2-ю гильдию, нужно было подтвердить капитал в 8 тысяч рублей. Платили двойные налоги.</p>
+                            <p>✅ <strong>1806:</strong> В Астрахани бушует чума. Евреев допускают хоронить своих усопших отдельно, у Покровского монастыря. Первый похороненный на новом кладбище значится под фамилией Сахаров. Очевидный признак того, что ассимиляция шла полным ходом еще 200 лет назад.</p>
+                            <p>✅ <strong>1824:</strong> Министр Канкрин фактически ставит общину на паузу, добившись запрета на постоянное проживание ради таможенных сборов.</p>
+                            <p>✅ <strong>1829:</strong> Рекрутчина в разгар холеры. 27 человек отправили этапом в Кизляр, обеспечив каждого подводой и провиантом (документы сохранились).</p>
+                            <p>✅ <strong>1835:</strong> Итог правления Александра I и Николая I — губерния закрыта для проживания. Местных 49 евреев предписано выселить, несмотря на просьбы губернатора развивать ремесла. Николай I подписывает указ. Астраханская губерния больше не входит в черту оседлости. Губернатор Тимирязев просит царя сделать исключение хотя бы для ремесленников — бесполезно. На этом первая глава истории астраханского еврейства закрывается.</p>
+                            <p><strong>Знали про первых астраханских евреев? Сохраняйте пост, чтобы не потерять эту историческую справку!</strong></p>
                         </div>
                     </div>
                 </div>
@@ -839,7 +897,7 @@
             <div class="contacts-container">
                 <p><strong>Юридический адрес:</strong> 414016, Астраханская обл, город Астрахань, улица Водников, дом 25, квартира 9</p>
                 <p><strong>Почтовый адрес:</strong> 414004, Россия, Астраханская обл, город Астрахань, улица Студенческая, д. 1, квартира 53</p>
-                <p>Тел.: +7(902)110-66-22</p>
+                <p>Тел.: 8(902)110-66-22</p>
                 <p>E-mail: alexandra.kalinina77@gmail.com</p>
                 <div class="social-links">
                     <a href="https://vk.ru/id792341205" target="_blank" class="social-link">
@@ -930,6 +988,16 @@
                 saltNewsContent.style.display = 'none';
             } else {
                 saltNewsContent.style.display = 'block';
+            }
+        }
+
+        // Функция для переключения видимости контента "Нарисуй картинку на эту тему"
+        function toggleDrawPicture() {
+            const drawPictureContent = document.getElementById('drawPictureContent');
+            if (drawPictureContent.style.display === 'flex') {
+                drawPictureContent.style.display = 'none';
+            } else {
+                drawPictureContent.style.display = 'flex';
             }
         }
 
